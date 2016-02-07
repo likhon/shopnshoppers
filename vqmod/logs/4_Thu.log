@@ -1,0 +1,15 @@
+---------- Date: 2014-10-23 14:28:02 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /sns/index.php?route=common/home
+MOD DETAILS:
+   modFile   : C:\wamp\www\sns\vqmod/xml/webby_blog.xml
+   id        : WebbyBlog Menu Shortcut
+   version   : 1.0.0
+   vqmver    : 2.3.0
+   author    : Saif Sulaiman - www.webberoo.in
+
+File Name    : catalog/view/theme/*/template/common/footer.tpl(0)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): <li><a href="<?php echo $information['href']; ?>"><?php echo $information['title']; ?></a></li>
+
+----------------------------------------------------------------------
+
+

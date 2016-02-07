@@ -1,0 +1,15 @@
+---------- Date: 2015-08-09 15:53:20 ~ IP : ::1 ----------
+REQUEST URI : /shopnshoppers/
+MOD DETAILS:
+   modFile   : C:\wamp\www\shopnshoppers\vqmod/xml/webby_blog.xml
+   id        : WebbyBlog Menu Shortcut
+   version   : 1.0.0
+   vqmver    : 2.3.0
+   author    : Saif Sulaiman - www.webberoo.in
+
+File Name    : catalog/view/theme/*/template/common/footer.tpl(0)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): <li><a href="<?php echo $information['href']; ?>"><?php echo $information['title']; ?></a></li>
+
+----------------------------------------------------------------------
+
+

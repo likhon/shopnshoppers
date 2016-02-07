@@ -1,0 +1,196 @@
+<modification>
+	<id>WebbyBlog Menu Shortcut</id>
+	<version>1.0.0</version>
+	<vqmver>2.3.0</vqmver>
+	<author>Saif Sulaiman - www.webberoo.in</author>
+	<!-- ADMIN AREA UPDATES -->
+	<file name="admin/controller/common/header.php">
+		<operation error="abort">
+			<search position="before"><![CDATA[$this->data['text_zone']]]></search>
+			<add><![CDATA[		
+			$this->data['wb_blog'] = $this->language->get('text_wb_blog');
+			$this->data['wb_post'] = $this->language->get('text_wb_post');
+			$this->data['wb_comments'] = $this->language->get('text_wb_comments');
+			$this->data['wb_categories'] = $this->language->get('text_wb_categories');
+			$this->data['wb_fav_links'] = $this->language->get('text_wb_fav_links');
+			$this->data['wb_widgets'] = $this->language->get('text_wb_widgets');
+			$this->data['wb_settings'] = $this->language->get('text_wb_settings');
+			]]></add>
+		</operation>
+		<operation error="abort">
+			<search position="before"><![CDATA[$this->data['zone']]]></search>
+			<add><![CDATA[			
+			$this->load->model('setting/extension');
+			$extensions = $this->model_setting_extension->getInstalled('module');
+			if(in_array('blog', $extensions)){
+				$this->data['blog_module'] 		= $this->config->get('blog_module');
+				$this->data['blog_post'] 		= $this->url->link('blog/post', 'token=' . $this->session->data['token'], 'SSL');
+				$this->data['blog_comment'] 	= $this->url->link('blog/comment', 'token=' . $this->session->data['token'], 'SSL');
+				$this->data['blog_category'] 	= $this->url->link('blog/category', 'token=' . $this->session->data['token'], 'SSL');
+				$this->data['blog_roll'] 		= $this->url->link('blog/roll', 'token=' . $this->session->data['token'], 'SSL');
+				$this->data['blog_widgets']     = $this->url->link('module/blog', 'reopen=1&token=' . $this->session->data['token'], 'SSL');
+				$this->data['blog_settings']    = $this->url->link('blog/settings', 'token=' . $this->session->data['token'], 'SSL');
+			}
+			]]></add>
+		</operation>
+	</file>
+	<file name="admin/language/*/common/header.php">
+		<operation error="abort">
+			<search position="before"><![CDATA[$_['text_zone']]]></search>
+			<add><![CDATA[
+			$_['text_wb_blog']        = 'Blog';
+			$_['text_wb_post']        = 'Posts';
+			$_['text_wb_comments']    = 'Comments';
+			$_['text_wb_categories']  = 'Categories';
+			$_['text_wb_fav_links']   = 'Favourite Links';
+			$_['text_wb_widgets']     = 'Widget Settings';
+			$_['text_wb_settings']    = 'Settings';
+			]]></add>
+		</operation>
+	</file>
+	<file name="admin/view/template/common/header.tpl">
+		<operation error="abort">
+			<search position="before"><![CDATA[<li id="system"><a class="top"><?php echo $text_system; ?></a>]]></search>
+			<add><![CDATA[
+			<?php
+				if(isset($blog_post)){
+			?>
+				<li id="blog"><a class="top"><?php echo $wb_blog; ?></a>
+					<ul>
+						<li><a href="<?php echo $blog_post; ?>"><?php echo $wb_post; ?></a></li>
+						<li><a href="<?php echo $blog_comment; ?>"><?php echo $wb_comments; ?></a></li>
+						<li><a href="<?php echo $blog_category; ?>"><?php echo $wb_categories; ?></a></li>
+						<li><a href="<?php echo $blog_roll; ?>"><?php echo $wb_fav_links; ?></a></li>
+						<li><a href="<?php echo $blog_widgets; ?>"><?php echo $wb_widgets; ?></a></li>
+						<li><a href="<?php echo $blog_settings; ?>"><?php echo $wb_settings; ?></a></li>
+					</ul>
+				</li>
+			<?php
+				}
+			?>
+			]]></add>
+		</operation>
+	</file>
+
+	<file name="catalog/language/*/common/footer.php">
+		<operation error="abort">
+			<search position="before"><![CDATA[$_['text_information']  = 'Information';]]></search>
+			<add><![CDATA[
+			$_['text_wb_blog']        = 'Blog';
+			]]></add>
+		</operation>
+	</file>
+	<file name="catalog/controller/common/footer.php">
+		<operation error="abort">
+			<search position="before"><![CDATA[$this->data['text_information'] = $this->language->get('text_information');]]></search>
+			<add><![CDATA[
+			//$this->load->model('setting/extension');
+			//$extensions = $this->model_setting_extension->getInstalled('module');
+			//if(in_array('blog', $extensions)){
+				$this->data['wb_blog'] = $this->language->get('text_wb_blog');
+			//}
+			]]></add>
+		</operation>
+		<operation error="abort">
+			<search position="before"><![CDATA[$this->data['newsletter'] = $this->url->link('account/newsletter', '', 'SSL');]]></search>
+			<add><![CDATA[
+			//$this->load->model('setting/extension');
+			//$extensions = $this->model_setting_extension->getInstalled('module');
+			//if(in_array('blog', $extensions)){
+				$this->data['blog_url'] = $this->url->link('blog/post', '', 'SSL');
+			//}
+			]]></add>
+		</operation>
+	</file>
+	<file name="catalog/view/theme/*/template/common/footer.tpl">
+		<operation error="abort">
+			<search position="after" offset="1"><![CDATA[<li><a href="<?php echo $information['href']; ?>"><?php echo $information['title']; ?></a></li>]]></search>
+			<add><![CDATA[
+			 <li><a href="<?php echo $blog_url; ?>"><?php echo $wb_blog; ?></a></li>
+			]]></add>
+		</operation>
+	</file>
+
+	<file name="catalog/controller/common/seo_url.php">
+		<operation>
+			<search position="after"><![CDATA[if (isset($this->request->get['_route_'])) {]]></search>
+			<add><![CDATA[
+			$static_urls =  array(
+				'blog.html' 	=> 'blog/post',
+				'home.html' 	=> 'common/home',
+				'register.html' => 'account/register',
+				'login.html' 	=> 'account/login'
+			);
+			if(isset($static_urls[$this->request->get['_route_']])) {
+				$this->request->get['route'] = $static_urls[$this->request->get['_route_']];
+				return $this->forward($this->request->get['route']);
+			} else if(strpos($this->request->get['_route_'],'blog/')>-1){
+				$this->request->get['_route_'] = str_replace('blog/','',$this->request->get['_route_']);
+				$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "url_alias WHERE keyword = '" . $this->db->escape($this->request->get['_route_']) . "'");
+				
+				if ($query->num_rows) {
+					$url_arr = explode('&', $query->row['query']);
+					
+					foreach($url_arr as $url_i){
+						$url_params = explode('=', $url_i);
+						if($url_params[0] == 'blog_category_id'){
+							$this->request->get['path'] = $url_params[1];
+						}
+						$this->request->get[$url_params[0]] = $url_params[1];
+					}
+					$this->request->get['_route_'] =  '';
+				}
+			}
+			]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[if (isset($this->request->get['product_id'])) {]]></search>
+			<add><![CDATA[
+			if (isset($this->request->get['blog_category_id'])) {
+				$this->request->get['route'] = 'blog/post/category';
+			} elseif (isset($this->request->get['blog_post_id'])) {
+				$this->request->get['route'] = 'blog/post/view';
+			} elseif (isset($this->request->get['product_id'])) {]]></add>
+		</operation>
+		<operation>
+			<search position="after"><![CDATA[parse_str($url_info['query'], $data);]]></search>
+			<add><![CDATA[
+
+		//$static_urls =  array(
+			//'blog/post' => '/blog.html',
+			//'common/home' => '/home.html',
+			//'account/register' => '/register.html',
+			//'account/login' => '/login.html'
+		//);
+		//if(isset($static_urls[$data['route']])) {
+			//return $static_urls[$data['route']];
+		//}
+			
+		if ($data['route'] == 'blog/post/view' || $data['route'] == 'blog/post/category') {
+			if($data['route'] == 'blog/post/category'){
+				unset($data['route']);
+				foreach ($data as $key => $value) {
+					$query_str[] = str_replace('path', 'blog_category_id', $key) . '=' .$value;
+				}
+			} else {
+				unset($data['route']);
+				$query_str = array();
+				foreach ($data as $key => $value) {
+					$query_str[] = $key . '=' .$value;
+				}
+			}
+
+			$final_query = $this->db->escape(implode('&', $query_str));
+
+			$query = $this->db->query('SELECT * FROM ' . DB_PREFIX . "url_alias WHERE `query` = '$final_query'");
+
+			if ($query->num_rows) {
+				return  '/blog/' . $query->row['keyword'];
+			} else{
+				return $link;
+			}
+		}
+			]]></add>
+		</operation>
+	</file>
+</modification>

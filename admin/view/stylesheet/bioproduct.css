@@ -1,0 +1,22 @@
+.f_left{float: left;}
+.clear_both{clear: both;}
+.min_height{min-height: 200px !important;}
+.display_inline{display: inline;}
+.display_block{display:block;}
+.display_none{display:none;}
+.margin_left{
+    margin-left:205px;
+    border-left: 1px solid #DDDDDD;
+    padding-left: 10px
+}
+.min_height.vtabs{border-right: none}
+.min_height.vtabs a{width: 175px}
+
+table.form_colors > tbody > tr > td:first-child {
+    width: 300px;
+}
+.width_full{width: 100%}
+.width_full_padding{width:97%;margin-left: 10px;margin-right: 10px}
+table.form > tbody > tr > td.border_bottom_none{border-bottom: none}
+
+

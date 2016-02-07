@@ -1,0 +1,14 @@
+<modification>  
+   <id>Products filters on main page</id>
+   <version>1.0</version>
+   <vqmver>2.4.1</vqmver>
+   <author>tonytheme</author>
+   <file name="catalog/controller/common/home.php">
+      <operation>
+         <search position="before"><![CDATA['common/footer',]]></search>
+         <add><![CDATA[
+                 'common/column_right_filter',
+            ]]></add>
+      </operation>
+   </file>
+</modification>
