@@ -880,6 +880,7 @@ color:<?php echo $theme_colors["general_themehover"]?> !important
 <!--custom css changes-->
 <?php if (isset($theme_options["css_file"]) && $theme_options["css_file"] == 'A' ) : ?>
 <link type="text/css" href="catalog/view/theme/<?php echo $this->config->get('config_template'); ?>/stylesheet/custom.css" rel="stylesheet" />
+<link type="text/css" href="catalog/view/theme/<?php echo $this->config->get('config_template'); ?>/bootstrap/css/bootstrap.css" rel="stylesheet" />
 <?php endif; ?>
 <!--end custom css changes-->
 
@@ -916,6 +917,7 @@ if (!$layout_id) { $layout_id = $this->config->get('config_layout_id'); }
 <script src="catalog/view/theme/<?php echo $this->config->get('config_template'); ?>/js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="catalog/view/javascript/jquery/ui/jquery-ui-1.8.16.custom.min.js"></script>
 
+<script type="text/javascript" src="catalog/view/theme/<?php echo $this->config->get('config_template'); ?>/bootstrap/js/bootstrap.min.js"></script>
 
 
 <?php if (!isset($theme_options["layout_skin"]) || $theme_options["layout_skin"] == 'skin_creative') { ?>
