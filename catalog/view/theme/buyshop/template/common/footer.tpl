@@ -21,7 +21,7 @@ if(!empty($this->request->get['route']) && $this->request->get['route'] != 'comm
 </div>
 <!-- end wrap -->
 
-<div id="footer">
+<div id="footer" class="footer-position">
     <div id="footer_line" class="<?php echo ((isset($theme_options["footerpopup_mode"]) && $theme_options["footerpopup_mode"] == 'normal') ? 'footer_line_normal_bg' : 'footer_line_slide_bg'); ?>">
         <?php if (empty($theme_options["footerpopup"]) || $theme_options["footerpopup"] !== 'disable' ) :  ?>
             <div <?php echo ((isset($theme_options["footerpopup_mode"]) && $theme_options["footerpopup_mode"] == 'normal') ? 'class="footer_popup_open"' : 'id="footer_popup" class="footer_bg allowHover"'); ?>>
@@ -70,11 +70,11 @@ if(!empty($this->request->get['route']) && $this->request->get['route'] != 'comm
                 </div>
 
              </div>
-<!--
+
 <div id="footer_button" class="<?php echo (($theme_skin["general_skin"] == 'dark') ? 'popup_button_dark' : 'popup_button_light'); ?> <?php echo ((isset($theme_options["footerpopup_mode"]) && $theme_options["footerpopup_mode"] == 'normal') ? 'popup_button_normal_mode' : 'popup_button_slide_mode'); ?>">
 <i class="icon-up"></i>
 </div>
--->
+
         <?php endif; ?>
 
         <div class="<?php echo ((isset($theme_options["footerpopup_mode"]) && $theme_options["footerpopup_mode"] == 'normal') ? 'footer_bottom_normal_mode' : 'footer_bottom_slide_mode'); ?> <?php echo(($theme_skin["general_skin"] == 'dark') ? 'footer_dark_skin_wrapper' : 'footer_light_skin_wrapper'); ?>">

@@ -51,8 +51,9 @@ $image_rotate = $theme_products["rollover_effect"];
   <!--<h1><?php echo $heading_title; ?></h1> -->
     <!--<b><?php echo $text_critea; ?></b> -->
     <div class="content search_categories">
-        <div class="col-md-12">
 
+        <div class="col-md-9" style="float: left">
+            <div class="col-md-12">
                 <?php if ($search) { ?>
                 <input type="text" name="search" value="<?php echo $search; ?>" placeholder="Search keyword" />
                 <?php } else { ?>
@@ -85,7 +86,7 @@ $image_rotate = $theme_products["rollover_effect"];
                 </select>
 
         </div>
-        <div class="col-md-12">
+            <div class="col-md-12">
 
                 <?php if ($sub_category) { ?>
                 <input type="checkbox" name="sub_category" value="1" id="sub_category" checked="checked" />
@@ -101,55 +102,19 @@ $image_rotate = $theme_products["rollover_effect"];
                 <?php } ?>
                 <label for="description"><?php echo $entry_description; ?></label>
             </div>
-            <span class="col-md-2 buttons">
-                <div class="right"><input type="button" value="<?php echo $button_search; ?>" id="button-search" class="button" /></div>
-            </span>
         </div>
+        <div class="col-md-2" style="text-align: right">
+            <input type="button" value="<?php echo $button_search; ?>" id="button-search" class="button" />
+        </div>
+    </div>
 
     <!--<h2><?php echo $text_search; ?></h2>-->
     <?php if ($products) { ?>
 
       <!-- pager block -->
-    <div class="listing_header_row1">
-        <div class="pull-left">
-            <label class="label_sort"><?php echo $text_sort; ?></label>
-            <div class="select_wrapper width1">
-                <select class="custom sort-by" onchange="location = this.value;" tabindex="1">
-                    <?php foreach ($sorts as $sorts) { ?>
-                    <?php if ($sorts['value'] == $sort . '-' . $order) { ?>
-                    <option value="<?php echo $sorts['href']; ?>" selected="selected"><?php echo $sorts['text']; ?></option>
-                    <?php } else { ?>
-                    <option value="<?php echo $sorts['href']; ?>"><?php echo $sorts['text']; ?></option>
-                    <?php } ?>
-                    <?php } ?>
-                </select>
-            </div>
-        </div>
-        <div class="pull-left aligncenter hidden-phone">
-            <div class="display">
 
-            </div>
-        </div>
-        <div class="pull-right alignright">
-            <label><span class="hidden-phone"><?php echo $text_limit; ?></span></label>
-            <div class="select_wrapper width3">
-                <select class="custom" onchange="location = this.value;">
-                    <?php foreach ($limits as $limits) { ?>
-                    <?php if ($limits['value'] == $limit) { ?>
-                    <option value="<?php echo $limits['href']; ?>" selected="selected"><?php echo $limits['text']; ?></option>
-                    <?php } else { ?>
-                    <option value="<?php echo $limits['href']; ?>"><?php echo $limits['text']; ?></option>
-                    <?php } ?>
-                    <?php } ?>
-                </select>
-            </div>
-            per&nbsp;page</div>
-    </div>
-    <div class="product-compare">
-        <a href="<?php echo $compare; ?>" id="compare-total"><?php echo $text_compare; ?></a>
-    </div>
     <div class="line1"></div>
-    <div class="pagination listing_header_row2"><?php echo $pagination; ?></div>
+    <div class="pagination listing_header_row2"><?php //echo $pagination; ?></div>
     <!-- end pager block -->
 
 
@@ -167,7 +132,7 @@ $image_rotate = $theme_products["rollover_effect"];
 
 
 <?php } else { ?>
-  <div class="content"><?php echo $text_empty; ?></div>
+  <div class="content no-item-found"><?php echo $text_empty; ?></div>
   <?php }?>
   <?php echo $content_bottom; ?>
 

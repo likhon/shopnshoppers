@@ -223,6 +223,44 @@ ul.box-filter>li ul{padding-bottom:10px}
 .sitemap-info .left{float:left;width:48%}
 .sitemap-info .right{float:left;width:48%}
 /*end stylesheet*/
+.no-item-found{
+  margin-top: 35px;
+  font-weight: bold;
+  color: #9E3EC7;
+  font-size: 18px;
+}
+.footer-position{
+  position: relative;
+  bottom: 0px;
+}
+.login-panel-left{
+  width: 50%;
+  float: left;
+  margin-right: 15px;
+}
+.login-panel-right{
+  width: 45%;
+  float: left;
+}
+.login-panel-heading{
+  border: 1px solid #93BD01;
+  padding: 5px;
+  background-color: #93BD01;
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 15px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+.login-panel-body{
+  border: 1px solid #93BD01;
+  padding: 5px;
+  min-height: 300px;
+  padding: 10px;
+
+}
+
+
 
 /*reset.css*/
 a,abbr,acronym,address,applet,article,aside,audio,b,blockquote,big,body,center,canvas,caption,cite,code,command,datalist,dd,del,details,dfn,dl,div,dt,em,embed,fieldset,figcaption,figure,font,footer,form,h1,h3,h3,h3,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,keygen,label,legend,li,meter,nav,object,ol,output,p,pre,progress,q,s,samp,section,small,span,source,strike,strong,sub,sup,table,tbody,tfoot,thead,th,tr,tdvideo,tt,u,ul,var{background:transparent;border:0 none;font-size:100%;margin:0;padding:0;border:0;outline:0;vertical-align:top}
