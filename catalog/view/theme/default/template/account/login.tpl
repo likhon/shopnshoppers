@@ -16,8 +16,14 @@
     <div class="login-panel-left">
         <div class="login-panel-heading"><?php echo $text_new_customer; ?></div>
         <div class="login-panel-body">
-            <p><?php echo $text_register_account; ?></p>
-            <a href="<?php echo $register; ?>" class="button"><?php echo $button_continue; ?></a>
+            <p class="new-customer-text"><?php echo $text_register_account; ?></p>
+            <p class="new-customer-button-group">
+                <a href="<?php echo $register; ?>" class="button">Register with email<?php //echo $button_continue; ?></a>
+                <a href="<?php echo $register; ?>" class="button p-0"><img src="<?=$this->config->get('config_url')?>/image/social/facebook.png" alt="Facebook"/> </a>
+                <a href="<?php echo $register; ?>" class="button p-0"><img src="<?=$this->config->get('config_url')?>/image/social/linkedin.png" alt="LinkedIn"/> </a>
+                <a href="<?php echo $register; ?>" class="button p-0"><img src="<?=$this->config->get('config_url')?>/image/social/twitter.png" alt="Twitter"/> </a>
+                <a href="<?php echo $register; ?>" class="button p-0"><img src="<?=$this->config->get('config_url')?>/image/social/google.png" alt="Google Plus"/> </a>
+            </p>
         </div>
     </div>
 
